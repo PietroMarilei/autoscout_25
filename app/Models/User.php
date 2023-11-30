@@ -7,10 +7,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Vehicle;
 
 class User extends Authenticatable
-{
+{   
     use HasApiTokens, HasFactory, Notifiable;
+    // relazione on to many con vehicles
+    public function vehicles() {
+        return $this->hasMany(Vehicle::class);
+    }
 
     /**
      * The attributes that are mass assignable.
