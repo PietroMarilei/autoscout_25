@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ApplicationLogo from '@/Components/ApplicationLogo';
+import Logo from '@/Components/Logo';
 import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
@@ -10,13 +10,13 @@ export default function Authenticated({ user, header, children }) {
     
     return (
         <div className="min-h-screen bg-gray-100">
-            <nav className="bg-white border-b border-gray-100">
+            <nav className="bg-autoscout-gray border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
                         <div className="flex">
                             <div className="shrink-0 flex items-center">
-                                <Link href="/">
-                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
+                                <Link href="/" className='w-40'>
+                                    <Logo />
                                 </Link>
                             </div>
 
@@ -28,10 +28,10 @@ export default function Authenticated({ user, header, children }) {
                                     Dashboard
                                 </NavLink>
               
-            {/* {link al index} */}
+                                {/* {link al index} */}
                                 <NavLink
                                     href={route("Vehicles.index")}     
-                                    active={route().current("dashboard")}
+                                    active={route().current("Vehicles.index")}
                                 >
                                     All Vehicles 
                                 </NavLink>

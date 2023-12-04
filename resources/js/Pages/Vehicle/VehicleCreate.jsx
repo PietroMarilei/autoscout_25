@@ -4,19 +4,14 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import DangerButton from "@/Components/DangerButton";
 import SecondaryButton from "@/Components/SecondaryButton";
 import NavLink from "@/Components/NavLink";
-import '../../../css/vehicleIndex.pcss';
 
 export default function VehicleIndex(props) {
     console.log(props);
 
-
     const AllVehicles = props.vehicles.map((obj, i) => {
         return(
             <div key={i} className="max-w-2xl p-4">
-                <div className="w-80">
-                    <img src={obj.img_path} alt={obj.title} />
-                </div>
-                <p className="post-class">
+                <p className="">
                     <br />
                     {obj.title}
                     <br />
@@ -24,7 +19,6 @@ export default function VehicleIndex(props) {
                     <br />
                     {obj.description}
                     <br />$ {obj.price}
-                    <span className="classe2">hello</span>
                 </p>
 
                 <div className="flex gap-5 my-5">
@@ -60,8 +54,8 @@ export default function VehicleIndex(props) {
                         </NavLink>
                     </DangerButton>
                 </div>
+                
             </div>
-            
         )
     });
     return (

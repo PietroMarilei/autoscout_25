@@ -17,7 +17,7 @@ class VehiclesTableSeeder extends Seeder
             $faker = (new \Faker\Factory())::create();
             $faker->addProvider(new \Faker\Provider\Fakecar($faker));
 
-            for ($i = 0; $i < 10; $i++) {
+            for ($i = 1; $i <= 10; $i++) {
                 $vehicle = new Vehicle();
                 $vehicle->user_id = $i;
                 $vehicle->title = $faker->vehicle;

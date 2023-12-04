@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Photo;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth ;
@@ -15,8 +16,7 @@ class VehicleController extends Controller
     public function index()
     {
         $user = Auth::id();
-        $vehicles = Vehicle::where('id', '=', $user )->get();
-        
+        $vehicles = Vehicle::join('photos','vehicles.id','=','photos.vehicle_id')->where('user_id','=',$user)->get();
         return Inertia::render("Vehicle/VehicleIndex", compact('vehicles'));
     }
 
