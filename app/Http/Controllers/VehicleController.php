@@ -41,7 +41,9 @@ class VehicleController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $vehicle = Vehicle::findOrFail($id);
+        dd($vehicle);
+        return Inertia::render("Vehicle/VehicleShow", compact('vehicle'));
     }
 
     /**
@@ -65,6 +67,8 @@ class VehicleController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $vehicle = Vehicle::findOrFail($id);
+        $vehicle->delete();
+        return redirect()->route('Vehicles.index');
     }
 }
